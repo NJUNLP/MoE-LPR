@@ -1,9 +1,10 @@
 ## MoE-LPR: Multilingual Extension of Large Language Models through Mixture-of-Experts with Language Priors Routing
 
-This repository contains the code for our AAAI 2025 paper [MoE-LPR: Multilingual Extension of Large Language Models through Mixture-of-Experts with Language Priors Routing](https://arxiv.org/abs/2408.11396)
+This repository contains the code for our AAAI 2025 Paper:
+[MoE-LPR: Multilingual Extension of Large Language Models through Mixture-of-Experts with Language Priors Routing](https://arxiv.org/abs/2408.11396)
 ## Quick Links
 
-- [MoE-LPR: Multilingual Extension of Large Language Models through Mixture-of-Experts with Language Priors Routing](#moe-lpr-multilingual-extension-of-large-language-models-through-mixture-of-Experts-with-language-priors-routing)
+- [MoE-LPR](#moe-lpr)
 - [Quick Links](#quick-links)
 - [Overview](#overview)
   - [Stage 1: Post-pretraining with MoE](#stage-1-post-pretraining-with-moe)
@@ -19,7 +20,7 @@ This repository contains the code for our AAAI 2025 paper [MoE-LPR: Multilingual
 
 
 ## Overview
-In this paper, we propose a method called MoE-LPR (Mixture-of-Experts with Language Priors Routing). MoE-LPR employs a two-stage training approach to enhance the multilingual capability. First, the model is post-pretrained into a Mixture-of-Experts (MoE) architecture by upcycling, where all the original parameters are frozen and new experts are added. In this stage, we focus improving the ability on expanded languages, without using any original language data. Then, the model reviews the knowledge of the original languages with replay data amounting to less than 1% of post-pretraining, where we incorporate language priors routing to better recover the abilities of the original languages. Evaluations on multiple benchmarks show that MoE-LPR outperforms other postpretraining methods.
+We propose MoE-LPR (Mixture-of-Experts with Language Priors Routing), a two-stage training approach to enhance your LLM's multilingual capability. First, the model is post-pretrained into a Mixture-of-Experts (MoE) architecture by upcycling, where all the original parameters are frozen and new experts are added. In this stage, we focus improving the ability on expanded languages, without using any original language data. Then, the model reviews the knowledge of the original languages with replay data amounting to less than 1% of post-pretraining, where we incorporate language priors routing to better recover the abilities of the original languages. Evaluations on multiple benchmarks show that MoE-LPR outperforms other postpretraining methods.
 ### Stage 1: Post-pretraining with MoE
 As shown in the Figure, we upcycle the dense model to the MoE architecture. To enhance the MoE model’s multilingual capabilities while preserving its performance on the originally supported languages, we freeze the parameters of the original dense model within the MoE during post-pretraining on the expanded languages corpus. This approach retains the model’s existing knowledge and only updates the parameters of the newly added experts and router. These freezing parameters preserve the knowledge of not only the original languages but also the expanded language. The router can freely choose new experts or frozen experts, corresponding to storing new knowledge or reusing old knowledge.
 <div align="center">
@@ -37,7 +38,7 @@ We show the main results of MoE-LPR on several LLM tasks. MoE-LPR outperforms ot
 
 We have alse conduct experiments on LLaMA3-8B：
 <div align="center">
-<img src=figures/llama3.jpg width=95% height=95% />
+<img src=figures/llama3.jpg width=70% height=70% />
 </div>
 
 
